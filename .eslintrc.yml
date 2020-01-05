@@ -1,0 +1,18 @@
+extends: airbnb-base
+env:
+  browser: true
+  node: true
+rules:
+  no-console: "off"
+  comma-dangle: "off"
+  import/prefer-default-export: "off"
+  no-plusplus: "off"
+  new-cap: "off"
+  no-restricted-globals: "off"
+  no-use-before-define: "off"
+  no-multi-assign: "off"
+  class-methods-use-this: "off"
+  no-param-reassign: "off"
+  no-case-declarations: "off"
+  max-len: [2, 120, 4, {"ignoreUrls": true}]
+  no-await-in-loop: "off"
