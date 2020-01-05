@@ -1,0 +1,22 @@
+{
+  "name": "thematrix",
+  "version": "1.0.0",
+  "description": "A little POC to simulate our worlds according to the franchise The Matrix",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rousan/TheMatrix.git"
+  },
+  "keywords": [
+    "matrix"
+  ],
+  "author": "Rousan Ali <hello@rousan.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rousan/TheMatrix/issues"
+  },
+  "homepage": "https://github.com/rousan/TheMatrix#readme"
+}
