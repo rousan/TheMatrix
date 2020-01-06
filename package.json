@@ -9,7 +9,8 @@
     "client": "cross-env NODE_ENV=development webpack-dev-server --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku": "git push heroku master --force"
+    "heroku:dev": "git push heroku develop:master --force",
+    "heroku:prod": "git push heroku master --force"
   },
   "repository": {
     "type": "git",
