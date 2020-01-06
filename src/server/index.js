@@ -1,14 +1,23 @@
 require('dotenv').config();
 const http = require('http');
 const express = require('express');
+const SocketIO = require('socket.io');
 const bodyParser = require('body-parser');
 const HttpStatus = require('http-status-codes');
 const cors = require('cors');
 const router = require('./routes');
 const logger = require('./logger');
+const Matrix = require('../matrix/matrix.server');
+const { matrixName, matrixViewport } = require('./constants');
 
 const app = express();
 const server = http.createServer(app);
+const io = SocketIO(server, { path: '/connect' });
+
+io.on('connection', (socket) => {
+  logger.info('New WebSocket connection received');
+  socket.emit('matrixConfig', { name: matrixName, viewport: matrixViewport });
+});
 
 app.use((req, res, next) => {
   logger.info(`${req.method.toUpperCase()} ${req.originalUrl}`);
@@ -39,4 +48,10 @@ const host = process.env.HOST || 'localhost';
 const port = process.env.PORT || 3001;
 server.listen(port, host, () => {
   logger.info(`Listening on ${host}:${port}`);
+
+  const matrix = global.matrix = new Matrix('TheMatrix', matrixViewport);
+  matrix.bootup(() => {
+    io.emit('refreshMatrix', matrix.serialize());
+  });
+  logger.info(`${matrix.name} is up`);
 });

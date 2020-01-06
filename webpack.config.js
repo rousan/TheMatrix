@@ -7,7 +7,7 @@ const outputDirectory = 'dist';
 const mode = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  entry: './src/client/index.js',
+  entry: ['babel-polyfill', './src/client/index.js'],
   output: {
     path: path.join(__dirname, outputDirectory),
     filename: mode === 'development' ? 'bundle.js' : '[hash].bundle.js',
@@ -59,7 +59,7 @@ module.exports = {
       '/connect': {
         target: `ws://localhost:${process.env.PORT}`,
         ws: true,
-      },
+      }
     },
     historyApiFallback: true,
   },

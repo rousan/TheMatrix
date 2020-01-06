@@ -1,7 +1,25 @@
+import io from 'socket.io-client';
 import './style.css';
-import axios from 'axios';
+import Matrix from '../matrix/matrix.projection';
 
-axios.get('/api/v1/ping')
-  .then(({ data }) => {
-    console.log(data);
-  });
+let matrix;
+
+const socket = io({
+  path: '/connect'
+});
+
+socket.on('connect', () => {
+  console.log('WebSocket connection is open');
+});
+
+socket.on('matrixConfig', (data) => {
+  matrix = new Matrix(data.name, data.viewport);
+});
+
+socket.on('refreshMatrix', (data) => {
+  if (!matrix) {
+    return;
+  }
+
+  matrix.update(data);
+});
