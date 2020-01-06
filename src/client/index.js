@@ -16,10 +16,10 @@ socket.on('matrixConfig', (data) => {
   matrix = new Matrix(data.name, data.viewport);
 });
 
-socket.on('refreshMatrix', (data) => {
+socket.on('changeMatrix', (changes) => {
   if (!matrix) {
     return;
   }
 
-  matrix.update(data);
+  matrix.update(changes);
 });

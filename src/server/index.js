@@ -17,6 +17,7 @@ const io = SocketIO(server, { path: '/connect' });
 io.on('connection', (socket) => {
   logger.info('New WebSocket connection received');
   socket.emit('matrixConfig', { name: matrixName, viewport: matrixViewport });
+  socket.emit('changeMatrix', global.matrix.serialize());
 });
 
 app.use((req, res, next) => {
@@ -50,8 +51,8 @@ server.listen(port, host, () => {
   logger.info(`Listening on ${host}:${port}`);
 
   const matrix = global.matrix = new Matrix('TheMatrix', matrixViewport);
-  matrix.bootup(() => {
-    io.emit('refreshMatrix', matrix.serialize());
+  matrix.bootup((matrixChanges) => {
+    io.emit('changeMatrix', matrixChanges);
   });
   logger.info(`${matrix.name} is up`);
 });

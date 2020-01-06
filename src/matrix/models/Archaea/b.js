@@ -13,6 +13,7 @@ class Archaea extends LivingBeing {
       color: 'red',
       position: birthPosition
     };
+    this.node = document.createElement('div');
   }
 
   updateProjection() {
@@ -31,7 +32,7 @@ class Archaea extends LivingBeing {
 
   static deSerialize(data) {
     const archaea = new Archaea(data.id, data.name, data.birthPosition);
-    archaea.cosmetics = data.cosmetics;
+    archaea.updateCosmetics(data.cosmetics);
     return archaea;
   }
 }

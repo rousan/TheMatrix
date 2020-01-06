@@ -3,10 +3,22 @@ class Being {
     this.id = id;
     this.name = name;
     this.kind = 'Being';
+    this.cosmetics = {};
+    this.node = null;
   }
 
-  project() {
-    throw new Error('Method is not yet implemented');
+  updateCosmetics(newCosmetics) {
+    this.cosmetics = newCosmetics;
+  }
+
+  project(matrix) {
+    const { node } = this;
+    matrix.addNode(node);
+    this.updateProjection();
+  }
+
+  updateProjection() {
+    throw new Error('Not yet implemented');
   }
 
   static deSerialize(data) {

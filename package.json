@@ -8,7 +8,8 @@
     "start": "node src/server/index.js",
     "client": "cross-env NODE_ENV=development webpack-dev-server --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku": "git push heroku master --force"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,6 @@
   },
   "homepage": "https://github.com/rousan/TheMatrix#readme",
   "dependencies": {
-    "antd": "^3.15.0",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
@@ -38,6 +38,7 @@
     "randomcolor": "^0.5.4",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
+    "uuid": "^3.3.3",
     "ws": "^6.2.0"
   },
   "devDependencies": {

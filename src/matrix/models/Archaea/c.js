@@ -1,3 +1,4 @@
+const randomColor = require('randomcolor');
 const LivingBeing = require('../LivingBeing/c');
 
 class Archaea extends LivingBeing {
@@ -12,6 +13,13 @@ class Archaea extends LivingBeing {
       color: 'red',
       position: birthPosition
     };
+  }
+
+  deploy(changeCallback) {
+    setInterval(() => {
+      this.cosmetics.color = randomColor();
+      changeCallback(this);
+    }, 50);
   }
 
   serialize() {

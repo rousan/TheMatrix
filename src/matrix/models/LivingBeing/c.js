@@ -6,7 +6,6 @@ class LivingBeing extends Being {
 
     this.birthPosition = birthPosition;
     this.kind = 'LivingBeing';
-    this.cosmetics = {};
   }
 
   serialize() {
