@@ -1,4 +1,4 @@
-const matrixViewport = { width: 600, height: 600 };
+const matrixViewport = { width: 1000, height: 800 };
 const matrixName = 'TheMatrix';
 
 module.exports = {

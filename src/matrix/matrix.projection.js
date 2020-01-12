@@ -1,4 +1,5 @@
 import Archaea from './models/Archaea/b';
+import { applyStyles } from '../client/helpers';
 
 const kindMap = {
   Archaea
@@ -10,6 +11,18 @@ class Matrix {
     this.viewport = viewport;
     this.viewNode = document.getElementById('root');
     this.beingMap = new Map();
+    this.init();
+  }
+
+  init() {
+    const { viewport, viewNode } = this;
+
+    applyStyles(viewNode, {
+      width: `${viewport.width}px`,
+      height: `${viewport.height}px`,
+      border: '1px solid red',
+      margin: '20px'
+    });
   }
 
   addNode(node) {

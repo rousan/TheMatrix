@@ -15,7 +15,10 @@ class Matrix {
 
   deployInitialBeings() {
     const a1 = new Archaea(uuid(), 'A1', { x: 100, y: 33 });
+    a1.cosmetics.color = 'red';
+
     const a2 = new Archaea(uuid(), 'A2', { x: 400, y: 200 });
+    a2.cosmetics.color = 'green';
 
     this.addBeing(a1);
     this.addBeing(a2);

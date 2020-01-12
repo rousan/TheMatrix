@@ -8,7 +8,7 @@ class Archaea extends LivingBeing {
     this.kind = 'Archaea';
     this.cosmetics = {
       shape: 'rect',
-      widht: 20,
+      width: 20,
       height: 20,
       color: 'red',
       position: birthPosition
@@ -16,8 +16,10 @@ class Archaea extends LivingBeing {
   }
 
   deploy(changeCallback) {
+    // think
     setInterval(() => {
       this.cosmetics.color = randomColor();
+
       changeCallback(this);
     }, 50);
   }

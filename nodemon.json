@@ -1,6 +1,7 @@
 {
   "watch": [
     "src/server/",
+    "src/matrix/matrix.server.js",
     "src/matrix/**/*/c.js"
   ]
 }

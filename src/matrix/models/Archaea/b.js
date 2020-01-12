@@ -8,7 +8,7 @@ class Archaea extends LivingBeing {
     this.kind = 'Archaea';
     this.cosmetics = {
       shape: 'rect',
-      widht: 20,
+      width: 20,
       height: 20,
       color: 'red',
       position: birthPosition
@@ -22,7 +22,7 @@ class Archaea extends LivingBeing {
     applyStyles(node, {
       display: 'block',
       position: 'absolute',
-      width: `${cosmetics.widht}px`,
+      width: `${cosmetics.width}px`,
       height: `${cosmetics.height}px`,
       left: `${cosmetics.position.x}px`,
       top: `${cosmetics.position.y}px`,
